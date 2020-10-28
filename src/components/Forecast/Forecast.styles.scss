@@ -1,0 +1,15 @@
+.forecast {
+  background-color: white;
+  border: 1px solid rgb(228, 228, 228);
+  margin-top: 10px;
+
+  &__header {
+    border-bottom: 1px solid rgb(228, 228, 228);
+    padding: 10px;
+  }
+
+  &__tabs {
+    padding: 10px;
+    padding-top: 0;
+  }
+}

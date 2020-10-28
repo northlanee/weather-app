@@ -1,0 +1,17 @@
+.geolocation_form {
+  padding: 10px 0;
+
+  &__inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  &__search-bar {
+    width: 60%;
+  }
+
+  &__current-btn {
+    width: 35%;
+  }
+}
