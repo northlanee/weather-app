@@ -3,6 +3,7 @@ import { Geolocation, City } from "sharedTypes";
 export type GeolocationState = {
   currentGeolocation: Geolocation;
   cityList: City[];
+  geolocationEnabled: boolean;
   loading: boolean;
   error: null | string;
 };
@@ -25,6 +26,12 @@ type RemoveCity = {
   payload: string;
 };
 
+export const SET_GEO_ENABLED = "@CITY/SET_GEO_ENABLED";
+type SetGeoEnabled = {
+  type: typeof SET_GEO_ENABLED;
+  payload: boolean;
+};
+
 export const SET_LOADING = "@CITY/SET_LOADING";
 type SetLoading = {
   type: typeof SET_LOADING;
@@ -42,4 +49,5 @@ export type GeolocationActionTypes =
   | SetCityWeather
   | SetLoading
   | SetError
-  | RemoveCity;
+  | RemoveCity
+  | SetGeoEnabled;

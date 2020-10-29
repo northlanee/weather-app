@@ -20,9 +20,7 @@ export const dateHelper = {
 
   getDate: (dt: number): string => {
     const date = new Date(dt * 1000);
-    return `${leadZero(date.getDate())}.${leadZero(
-      date.getMonth() + 1
-    )}.${date.getFullYear()}`;
+    return `${leadZero(date.getDate())}.${leadZero(date.getMonth() + 1)}`;
   },
 };
 

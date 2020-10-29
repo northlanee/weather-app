@@ -11,6 +11,7 @@ const GeolocationForm: FC = (): ReactElement => {
     error,
     loading,
     cityInput,
+    geoEnabled,
     geolocationHandler,
     cityInputHandler,
     citySearchHandler,
@@ -34,6 +35,7 @@ const GeolocationForm: FC = (): ReactElement => {
           type="primary"
           size="large"
           className="geolocation_form__current-btn"
+          disabled={!geoEnabled}
         >
           Get current location
         </Button>

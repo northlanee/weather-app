@@ -5,6 +5,7 @@ export const city = {
   getCityList: (state: AppState) => state.city.cityList,
   loading: (state: AppState) => state.city.loading,
   error: (state: AppState) => state.city.error,
+  geoEnabled: (state: AppState) => state.city.geolocationEnabled,
 };
 
 export const weather = {

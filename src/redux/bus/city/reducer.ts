@@ -4,6 +4,7 @@ import {
   SET_GEOLOCATION,
   SET_CITY_WEATHER,
   REMOVE_CITY,
+  SET_GEO_ENABLED,
   SET_LOADING,
   SET_ERROR,
 } from "./types";
@@ -11,6 +12,7 @@ import {
 const initialState: GeolocationState = {
   currentGeolocation: null,
   cityList: [],
+  geolocationEnabled: true,
   loading: false,
   error: null,
 };
@@ -41,6 +43,9 @@ export const cityReducer = (
         newCityList.unshift(action.payload);
         return { ...state, cityList: newCityList };
       }
+
+    case SET_GEO_ENABLED:
+      return { ...state, geolocationEnabled: action.payload };
 
     case REMOVE_CITY:
       const newCitiesArr = state.cityList.filter(

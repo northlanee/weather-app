@@ -5,26 +5,32 @@ import { city } from "redux/bus/selectors";
 import {
   setGeolocation,
   fetchCurrentWeatherByCity,
+  setError,
+  setGeoEnabled,
 } from "redux/bus/city/actions";
 
 export const useGeolocationForm = () => {
   const dispatch = useDispatch();
   const loading = useSelector(city.loading);
   const error = useSelector(city.error);
+  const geoEnabled = useSelector(city.geoEnabled);
 
   const [cityInput, setCityInput] = React.useState<string>("");
 
   const getCurrentGeolocation = () => {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition((pos) =>
+    navigator.geolocation.getCurrentPosition(
+      (pos) =>
         dispatch(
           setGeolocation({
             latitude: pos.coords.latitude,
             longitude: pos.coords.longitude,
           })
-        )
-      );
-    }
+        ),
+      () => {
+        dispatch(setGeoEnabled(false));
+        dispatch(setError("Geolocation disabled"));
+      }
+    );
   };
 
   const geolocationHandler = () => {
@@ -44,6 +50,7 @@ export const useGeolocationForm = () => {
     error,
     loading,
     cityInput,
+    geoEnabled,
     geolocationHandler,
     cityInputHandler,
     citySearchHandler,

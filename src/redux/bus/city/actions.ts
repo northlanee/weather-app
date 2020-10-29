@@ -3,6 +3,7 @@ import {
   SET_GEOLOCATION,
   SET_CITY_WEATHER,
   REMOVE_CITY,
+  SET_GEO_ENABLED,
   SET_LOADING,
   SET_ERROR,
 } from "./types";
@@ -37,6 +38,11 @@ const setLoading = (payload: boolean): GeolocationActionTypes => ({
 
 export const setError = (payload: null | string): GeolocationActionTypes => ({
   type: SET_ERROR,
+  payload,
+});
+
+export const setGeoEnabled = (payload: boolean): GeolocationActionTypes => ({
+  type: SET_GEO_ENABLED,
   payload,
 });
 
