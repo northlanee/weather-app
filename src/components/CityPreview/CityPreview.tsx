@@ -21,15 +21,12 @@ const CityPreview: FC = (): ReactElement => {
     return <CityPreviewItem key={city.city} city={city} />;
   });
 
-  if (loading)
-    return (
-      <>
-        <Spinner />
-        {citiesJSX}
-      </>
-    );
-
-  return <div>{citiesJSX}</div>;
+  return (
+    <div>
+      {loading ? <Spinner /> : null}
+      {citiesJSX}
+    </div>
+  );
 };
 
 export default CityPreview;

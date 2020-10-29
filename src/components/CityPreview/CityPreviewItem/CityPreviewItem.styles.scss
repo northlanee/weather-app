@@ -15,4 +15,20 @@
   &__content {
     padding: 10px;
   }
+
+  &__transition {
+    &-enter,
+    &-appear {
+      width: 120px;
+      color: transparent;
+      opacity: 0;
+    }
+
+    &-enter-active,
+    &-appear-active {
+      width: 100%;
+      opacity: 1;
+      transition: all 1000ms;
+    }
+  }
 }

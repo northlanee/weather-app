@@ -6,6 +6,7 @@ import { Tabs } from "antd";
 
 import { weather } from "redux/bus/selectors";
 import { dateHelper } from "utils/dateHelper";
+import { CSSTransition } from "react-transition-group";
 
 import DayWeather from "./DayWeather/DayWeather";
 import { Spinner } from "components";
@@ -30,10 +31,18 @@ const Forecast: FC = (): ReactElement => {
 
   if (forecastJSX)
     return (
-      <div className="forecast">
-        <h3 className="forecast__header">Week Forecast</h3>
-        <Tabs className="forecast__tabs">{forecastJSX}</Tabs>
-      </div>
+      <CSSTransition
+        in={true}
+        timeout={1000}
+        classNames="forecast__transition"
+        unmountOnExit
+        appear
+      >
+        <div className="forecast">
+          <h3 className="forecast__header">Week Forecast</h3>
+          <Tabs className="forecast__tabs">{forecastJSX}</Tabs>
+        </div>
+      </CSSTransition>
     );
 
   if (loading) return <Spinner />;

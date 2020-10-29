@@ -63,7 +63,6 @@ export const fetchForecastWeather = (
           return createForecastObject(daily);
         }
       );
-    console.log(forecast);
     dispatch(setForecast(forecast));
     dispatch(setForecastLoading(false));
   } catch (err) {

@@ -10,8 +10,6 @@ import { useCityDetails } from "hooks/useCityDetails";
 const CityDetails: FC = (): ReactElement => {
   const { city, loading } = useCityDetails();
 
-  if (loading) return <Spinner />;
-
   const cityJSX = city ? (
     <>
       <CurrentWeather city={city} />
@@ -21,7 +19,9 @@ const CityDetails: FC = (): ReactElement => {
     <Empty description="City not found" image={emptyImg} />
   );
 
-  return (
+  return loading ? (
+    <Spinner />
+  ) : (
     <div>
       <Breadcrumb>
         <Breadcrumb.Item>

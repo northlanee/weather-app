@@ -37,7 +37,8 @@ export const cityReducer = (
         return { ...state, cityList: [action.payload, ...state.cityList] };
       else {
         const newCityList = [...state.cityList];
-        newCityList[cityIndex] = action.payload;
+        newCityList.splice(cityIndex, 1);
+        newCityList.unshift(action.payload);
         return { ...state, cityList: newCityList };
       }
 

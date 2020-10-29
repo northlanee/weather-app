@@ -24,4 +24,20 @@
   &__info {
     width: 90%;
   }
+
+  &__transition {
+    &-enter,
+    &-appear {
+      width: 300px;
+      opacity: 0;
+      color: transparent;
+    }
+
+    &-enter-active,
+    &-appear-active {
+      width: 100%;
+      opacity: 1;
+      transition: all 1000ms;
+    }
+  }
 }
